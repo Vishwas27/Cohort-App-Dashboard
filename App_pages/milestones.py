@@ -88,7 +88,7 @@ def monetisation_tab():
             st.write("No monetisation features added yet.")
 
 # Main function to render the Milestones page
-def run():
+def run(df):
     st.header("Milestones")
     
      # Arrange "Add Milestone" and "Refresh List" buttons in the same row

@@ -20,7 +20,10 @@ st.sidebar.title("REVUPP")
 # Directly read the Parquet file from a specified location
 file_path = "Synth_data/Synthetic_Format_Data.parquet"
 df = pd.read_parquet(file_path)
+# Setting 'registered_users' to 0 where 'cohort_date' is not equal to 'activity_date'
+df.loc[df['cohort_date'] != df['activity_date'], 'registered_users'] = 0
 
+df['total_users'] = df['registered_users']+df['active_users']
 # Optional: Set a default page if needed
 if 'current_page' not in st.session_state:
     st.session_state.current_page = "Dashboard"  # Default page
@@ -62,4 +65,4 @@ elif st.session_state.current_page == "Events":
 elif st.session_state.current_page == "Overrides":
     overrides.run(df)
 elif st.session_state.current_page == "Settings":
-    settings.run()
+    settings.run(df)

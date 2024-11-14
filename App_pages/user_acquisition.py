@@ -247,7 +247,8 @@ def spend_optimization():
             st.write("Consider aligning the spend to optimize user acquisition and engagement.")
 
 # Main function to render the User Acquisition page with tabs
-def run():
+
+def run(df):
     st.header("User Acquisition")
     tab1, tab2, tab3 = st.tabs(["User Acquisition Strategy", "Price Volume Relationship", "Spend Optimization"])
     
